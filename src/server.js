@@ -7,12 +7,12 @@ var port = process.env.PORT || 3000;
 
 app.use(cors());
 
-app.post('/upload/s3', s3Upload.single('file'), (req, res) => {
+app.post('/services/upload/s3', s3Upload.single('file'), (req, res) => {
   console.log("response", req.file);
   res.status(200).json({ success: true, fileLocation: req.file.location });
 });
 
-app.get('/health', (req, res) => {
+app.get('/services', (req, res) => {
   res.status(200).json({ success: true });
 });
 
