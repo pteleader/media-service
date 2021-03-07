@@ -12,6 +12,9 @@ app.post('/upload/s3', s3Upload.single('file'), (req, res) => {
   res.status(200).json({ success: true, fileLocation: req.file.location });
 });
 
+app.get('/health', (req, res) => {
+  res.status(200).json({ success: true });
+});
 
 // Start the server
 app.listen(port, function(err){
